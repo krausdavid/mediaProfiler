@@ -27,7 +27,7 @@ public class MP_OB_mediaObject {
     public String language;
     public String subtitles;
     public String studio;
-    public Data erscheinung;
+    public MP_OB_date erscheinung;
     public int year_of_production;
     public int time;
     public int age;
