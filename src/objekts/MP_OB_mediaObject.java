@@ -2,6 +2,7 @@ package objekts;
 
 
 import enums.Kind;
+import java.util.ArrayList;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +20,7 @@ public class MP_OB_mediaObject {
 
 
 //######By DVD######
-    public arrayList<String> actors;
+    public ArrayList<String> actors;
     public String director;
     public String producer;
     public String format;
@@ -31,4 +32,7 @@ public class MP_OB_mediaObject {
     public int time;
     public int age;
     public String kurzbeschreibung;
+
+
+//######By Books######
 }
