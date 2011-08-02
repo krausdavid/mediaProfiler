@@ -4,6 +4,8 @@ package objekts;
 import enums.Kind;
 
 import javax.print.attribute.standard.Media;
+import java.awt.*;
+import java.awt.font.ImageGraphicAttribute;
 import java.util.ArrayList;
 
 /**
@@ -17,12 +19,16 @@ import java.util.ArrayList;
 public class MP_OB_mediaObject {
 
     public Kind kind;
-    public long isbn;
+    public long ean;
     public String name;
-    //Picture
+    public String kurzbeschreibung;
+    public Image img;
+    public int year_of_production;
+    public String genre;
 
+    //Vertiefung des genres
 
-//######By DVD######
+//######By DVD and Blueray######
     public ArrayList<String> actors;
     public String director;
     public String producer;
@@ -31,22 +37,29 @@ public class MP_OB_mediaObject {
     public String subtitles;
     public String studio;
     public MP_OB_date erscheinung;
-    public int year_of_production;
     public int time;
     public int age;
-    public String kurzbeschreibung;
-
-
 //######By Books######
+    public long isbn;
+    public String autor;
+    public String verlag;
+//######By CD#######
+    ArrayList<String> interpret;
+    ArrayList<String> trackList;
+    String label;
+    String komponist;
 
 
-    public MP_OB_mediaObject(Kind kind, long isbn, String name, ArrayList<String> actors, String director, String producer, String format, String language, String subtitles, String studio, MP_OB_date erscheinung, int year_of_production, int time, int age, String kurzbeschreibung) {
+
+
+    public MP_OB_mediaObject(Kind kind, long ean, String name, String kurzbeschreibung,Image img, ArrayList<String> actors, String director, String producer, String format, String language, String subtitles, String studio, MP_OB_date erscheinung, int year_of_production, int time, int age,long isbn,String autor, String verlag, ArrayList<String> interpret, ArrayList<String> trackList,String label, String komponist) {
 
         this.kind = kind;
-        this.isbn = isbn;
+        this.ean = ean;
         this.name = name;
         this.kurzbeschreibung = kurzbeschreibung;
-
+        this.img = img;
+        this.year_of_production = year_of_production;
 
         if(kind == Kind.DVD || kind == Kind.BLUERAY){
             this.actors = actors;
@@ -57,7 +70,6 @@ public class MP_OB_mediaObject {
             this.subtitles = subtitles;
             this.studio = studio;
             this.erscheinung = erscheinung;
-            this.year_of_production = year_of_production;
             this.time = time;
             this.age = age;
         }else{
@@ -69,18 +81,32 @@ public class MP_OB_mediaObject {
             this.subtitles = null;
             this.studio = null;
             this.erscheinung = null;
-            this.year_of_production = -1;
             this.time = -1;
             this.age = -1;
 
         }
 
         if(kind == Kind.BOOK){
+            this.isbn = isbn;
+            this.autor = autor;
+            this.verlag = verlag;
 
+        }else{
+            this.isbn = -1;
+            this.autor = null;
+            this.verlag = null;
         }
 
         if(kind == Kind.CD){
-
+            this.interpret = interpret;
+            this.label = label;
+            this.trackList = trackList;
+            this.komponist = komponist;
+        }else{
+            this.interpret = null;
+            this.label = null;
+            this.trackList = null;
+            this.komponist = null;
         }
 
     }
